@@ -16,7 +16,7 @@ function App() {
 }
 function Country() {
   let params = useParams();
-  return <CountryDetail id={params.id}/>
+  return <CountryDetail name={params.id}/>
 }
 
 export default App;

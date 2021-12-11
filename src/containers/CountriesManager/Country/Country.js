@@ -13,7 +13,7 @@ const Country = (props) => {
         <h3>{props.nameFr}</h3>
         <p>Capitale : {props.capital}</p>
         <p>Continent : {props.continent}</p>
-        <NavLink to={`/countries/${props.name}`}>Voir la fiche du pays</NavLink>
+        {props.name && <NavLink to={`/countries/${props.name}`}>Voir la fiche du pays</NavLink>}
       </div>
     </div>
   );
