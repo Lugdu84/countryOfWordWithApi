@@ -24,10 +24,9 @@ class CountriesManager extends Component{
     axios
       .get(`${urlBase}/${continent}`)
       .then((response) => {
-        // const countries = Object.values(response.data);
         const countries = response.data.map((country) => {
           return {
-            name: country.name,
+            name: country.name.common,
             nameFr: country.translations.fra.official,
             flag: country.flags.png,
             capital: country.capital,
@@ -70,7 +69,7 @@ class CountriesManager extends Component{
       countries = reducedList.map((country, indice) => {
           return (
             <div key={indice} className="col-12 col-md-6">
-              <Country {...country} />
+              <Country {...country}/>
             </div>
           );
         });

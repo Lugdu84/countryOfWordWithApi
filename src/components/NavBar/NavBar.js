@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const NavBar = (props) => (
   <Navbar bg="light" expand="sm">
@@ -15,8 +15,8 @@ const NavBar = (props) => (
           style={{ maxHeight: "100px" }}
           navbarScroll
         >
-          <Link to="/" className="nav-link">Home</Link>
-          <Link to="/countries" className="nav-link">Countries</Link>
+          <NavLink to="/" className="nav-link">Home</NavLink>
+          <NavLink to="/countries" className="nav-link">Countries</NavLink>
         </Nav>
       </Navbar.Collapse>
     </Container>
