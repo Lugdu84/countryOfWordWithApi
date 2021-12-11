@@ -1,9 +1,9 @@
 import './App.scss';
-import PaysManager from './containers/PaysManager/PaysManager';
+import CountriesManager from './containers/CountriesManager/CountriesManager';
 
 function App() {
   return (
-    <PaysManager/>
+    <CountriesManager/>
   );
 }
 
