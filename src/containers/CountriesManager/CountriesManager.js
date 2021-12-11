@@ -37,7 +37,8 @@ class CountriesManager extends Component{
         this.setState({
           countries,
           loading: false,
-          continentSelection: continent
+          continentSelection: continent,
+          currentPageNumber: 1
         });
       })
       .catch((error) => {
@@ -122,9 +123,9 @@ class CountriesManager extends Component{
         ) : (
           <div className="row no-gutters">
             {countries}
+            <div>{pagination}</div>
           </div>
         )}
-        <div>{pagination}</div>
       </div>
     );
   }
