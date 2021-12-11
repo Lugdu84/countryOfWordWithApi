@@ -13,7 +13,6 @@ class CountryDetail extends Component {
     this.setState({loading: true});
     axios.get(`https://restcountries.com/v3.1/name/${this.props.name}`)
       .then(response => {
-        console.log(response.data[0])
         this.setState({
           loading: false,
           country: response.data[0]
