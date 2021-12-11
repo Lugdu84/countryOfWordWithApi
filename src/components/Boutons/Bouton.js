@@ -8,7 +8,7 @@ const component = (props) => {
       variant="info"
       onClick={props.click}
       className={classes.style}
-      style={props.continentIsSelected ? {opacity: 1} : {opacity: 0.7}}
+      style={props.isSelected ? {opacity: 1} : {opacity: 0.5}}
     >{props.children}</Button>
   );
 }

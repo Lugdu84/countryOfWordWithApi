@@ -9,7 +9,8 @@ class CountriesManager extends Component{
   state = {
     countries: [],
     loading: false,
-    continentSelection: null
+    continentSelection: null,
+    currentPageNumber: 1
   }
 
   componentDidMount = (continent) => {
@@ -47,42 +48,69 @@ class CountriesManager extends Component{
   }
 
   render(){
+    let pagination = [];
+    let countries = ""
+    if (this.state.countries) {
+      const end = Math.ceil(this.state.countries.length / 10);
+      for(let i=1; i <= end; i++) {
+        pagination.push(
+          <Bouton
+            key={i}
+            isSelected={this.state.currentPageNumber === i}
+            click={() => this.setState({ currentPageNumber: i })}
+          >
+            {i}
+          </Bouton>
+        );
+      }
+      const startListe = (this.state.currentPageNumber - 1) * 10;
+      const endListe = this.state.currentPageNumber * 10;
+      const reducedList = this.state.countries.slice(startListe, endListe);
+      countries = reducedList.map((country, indice) => {
+          return (
+            <div key={indice} className="col-12 col-md-6">
+              <Country {...country} />
+            </div>
+          );
+        });
+    }
+
     return (
       <div className="container">
         <TitreH1>Liste des pays du monde</TitreH1>
         <Bouton
           click={() => this.handleSelectionPaysParRegion("all")}
-          continentIsSelected={this.state.continentSelection === "all"}
+          isSelected={this.state.continentSelection === "all"}
         >
           Tous
         </Bouton>
         <Bouton
           click={() => this.handleSelectionPaysParRegion("europe")}
-          continentIsSelected={this.state.continentSelection === "europe"}
+          isSelected={this.state.continentSelection === "europe"}
         >
           Europe
         </Bouton>
         <Bouton
           click={() => this.handleSelectionPaysParRegion("africa")}
-          continentIsSelected={this.state.continentSelection === "africa"}
+          isSelected={this.state.continentSelection === "africa"}
         >
           Afrique
         </Bouton>
         <Bouton
           click={() => this.handleSelectionPaysParRegion("asia")}
-          continentIsSelected={this.state.continentSelection === "asia"}
+          isSelected={this.state.continentSelection === "asia"}
         >
           Asie
         </Bouton>
         <Bouton
           click={() => this.handleSelectionPaysParRegion("americas")}
-          continentIsSelected={this.state.continentSelection === "americas"}
+          isSelected={this.state.continentSelection === "americas"}
         >
           Amérique
         </Bouton>
         <Bouton
           click={() => this.handleSelectionPaysParRegion("oceania")}
-          continentIsSelected={this.state.continentSelection === "oceania"}
+          isSelected={this.state.continentSelection === "oceania"}
         >
           Océanie
         </Bouton>
@@ -93,16 +121,10 @@ class CountriesManager extends Component{
           <div>Chargement ...</div>
         ) : (
           <div className="row no-gutters">
-            {this.state.countries.map((country, indice) => {
-              return (
-                <div key={indice} className="col-12 col-md-6">
-                  <Country {...country} />
-                </div>
-              );
-            })}
+            {countries}
           </div>
         )}
-        <div>Pagination</div>
+        <div>{pagination}</div>
       </div>
     );
   }
