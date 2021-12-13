@@ -33,8 +33,10 @@ class CountryDetail extends Component {
           <Country
             flag={this.state.country.flags.png}
             nameFr={this.state.country.translations.fra.official}
-            capital={this.state.country.capital}
+            capital={this.state.country.capital.join(", ")}
             continent={this.state.country.continents}
+            languages= {Object.values(this.state.country.languages).join(', ')}
+            population = {this.state.country.population}
           />
 
         )}
