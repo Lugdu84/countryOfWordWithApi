@@ -14,7 +14,6 @@ const Country = (props) => {
         <p>Continent : {props.continent}</p>
         <p>Langue(s) : {props.languages}</p>
         <p>Population : {props.population}</p>
-        <p>Monnaie : {props.cash}</p>
       </>
     );
   }

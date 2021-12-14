@@ -22,7 +22,7 @@ function Country() {
 
 const NotFound = () => {
   return (
-    <>Not Found !</>
+    <>Page Not Found !</>
   );
 }
 
