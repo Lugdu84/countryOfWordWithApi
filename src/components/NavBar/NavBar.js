@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import {NavLink} from "react-router-dom";
 
 const NavBar = (props) => (
-  <Navbar bg="light" expand="sm">
+  <Navbar bg="info" expand="sm">
     <Container fluid>
       <Navbar.Brand href="#"></Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />

@@ -1,2 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
+
+
+.active {
+  border-bottom: 1px solid white;
+}
+
+.nav-link {
+  border-bottom-color: white;
+}
